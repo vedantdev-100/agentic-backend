@@ -133,13 +133,13 @@ def create_mcp_client() -> MultiServerMCPClient:
             # -------------------------
             # Local arithmetic MCP
             # -------------------------
-            "arith": {
-                "transport": "stdio",
-                "command": settings.arith_python,
-                "args": [
-                    settings.arith_main,
-                ],
-            },
+            # "arith": {
+            #     "transport": "stdio",
+            #     "command": settings.arith_python,
+            #     "args": [
+            #         settings.arith_main,
+            #     ],
+            # },
 
             # -------------------------
             # Remote expense MCP
