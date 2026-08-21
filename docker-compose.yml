@@ -9,7 +9,8 @@ services:
     ports:
       - "8000:8000"
     env_file:
-      - .env
+      - ${ENV_FILE}  # with jenkins
+      # - .env   #for local testing without jenkins
     volumes:
       - sqlite_data:/app/data
     restart: unless-stopped
