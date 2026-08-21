@@ -83,3 +83,57 @@ pipeline {
 
     }
 }
+
+
+
+
+##Working file 
+pipeline {
+    agent any
+
+    stages {
+
+        stage("Code") {
+            steps {
+                echo "This is cloning the code"
+
+                git(
+                    url: "https://github.com/vedantdev-100/agentic-backend.git",
+                    branch: "main"
+                )
+
+                echo "This code is cloned successfully..."
+            }
+        }
+
+        stage("Test") {
+            steps {
+                echo "This is testing the code"
+            }
+        }
+
+        stage("Deploy") {
+            steps {
+                echo "Deploying the application..."
+
+                withCredentials([
+                    file(
+                        credentialsId: 'fastapi-env',
+                        variable: 'ENV_FILE'
+                    )
+                ]) {
+                    bat '''
+                        copy /Y "%ENV_FILE%" ".env"
+
+                        docker compose down
+                        docker compose up -d --build
+
+                        if exist ".env" del /F /Q ".env"
+                    '''
+                }
+
+                echo "Application deployed successfully."
+            }
+        }
+    }
+}
