@@ -1,37 +1,3 @@
-# from fastapi import APIRouter, Request
-
-# from app.schemas.chat import (
-#     ChatRequest,
-#     ChatResponse,
-# )
-# from app.services.chat_service import ChatService
-
-
-# router = APIRouter(
-#     prefix="/api/v1/chat",
-#     tags=["chat"],
-# )
-
-
-# @router.post(
-#     "",
-#     response_model=ChatResponse,
-# )
-# async def chat(
-#     request: Request,
-#     body: ChatRequest,
-# ):
-
-#     service = ChatService(
-#         request.app.state.chatbot
-#     )
-
-#     return await service.chat(
-#         message=body.message,
-#         thread_id=body.thread_id,
-#     )
-
-
 import json
 
 from fastapi import APIRouter, Request

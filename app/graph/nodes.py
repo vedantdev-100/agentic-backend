@@ -1,6 +1,7 @@
 from langchain_core.messages import ToolMessage
 from langchain_groq import ChatGroq
 from langgraph.prebuilt import ToolNode
+from pydantic import SecretStr
 
 from app.core.config import get_settings
 from app.graph.state import ChatState
@@ -12,7 +13,7 @@ settings = get_settings()
 def create_llm(tools):
     llm = ChatGroq(
         model=settings.model_name,
-        api_key=settings.groq_api_key,
+        api_key=SecretStr(settings.groq_api_key),
         temperature=0,
     )
 
