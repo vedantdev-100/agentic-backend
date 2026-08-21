@@ -1,0 +1,23 @@
+// 1st working file
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastapi_backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ${ENV_FILE}  # with jenkins
+      # - .env   #for local testing without jenkins
+    volumes:
+      - sqlite_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
+
+
+

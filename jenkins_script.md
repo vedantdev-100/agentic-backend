@@ -137,3 +137,10 @@ pipeline {
         }
     }
 }
+
+
+
+1. Jenkinsfile → githubPush()
+2. gh extension install cli/gh-webhook
+3. gh auth login
+4. gh webhook forward ... → keep terminal running
