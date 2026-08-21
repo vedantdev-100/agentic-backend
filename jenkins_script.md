@@ -141,6 +141,30 @@ pipeline {
 
 
 1. Jenkinsfile → githubPush()
+
+Install GitHub webhook forwarding
 2. gh extension install cli/gh-webhook
 3. gh auth login
+
+Start forwarding GitHub → Jenkins
+http://localhost:8080 (jenkins)
+gh webhook forward --repo=vedantdev-100/agentic-backend --events=push --url=http://localhost:8080/github-webhook/
+
+
 4. gh webhook forward ... → keep terminal running
+
+GitHub
+   │
+   │ push
+   ▼
+GitHub CLI
+   │
+   │ forward
+   ▼
+localhost:8080/github-webhook/
+   │
+   ▼
+Jenkins
+   │
+   ▼
+Pipeline
