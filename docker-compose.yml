@@ -1,6 +1,6 @@
 services:
   backend:
-    image: vedant1118/notes-app:latest
+    image: vedant108/notes-app:latest
     container_name: fastapi_backend
     ports:
       - "8000:8000"
