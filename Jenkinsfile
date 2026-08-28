@@ -51,6 +51,7 @@ pipeline {
             steps {
                 script {
                     deployFastApi()
+                    echo "deploy successful"
                 }
             }
         }
